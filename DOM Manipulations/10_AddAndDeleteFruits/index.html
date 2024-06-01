@@ -1,31 +1,125 @@
 <!DOCTYPE html>
 <html lang="en">
-  <head>
-    <meta charset="UTF-8" />
-    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Document</title>
-    <link rel="stylesheet" href="style.css" />
-  </head>
-  <body style="margin: 0">
-    <div id="header" style="padding: 1rem; background-color: lightblue">
-      <h1 id="main-heading" style="margin: 0">Fruit Shop</h1>
-      <input id="filter" type="text" placeholder="Search fruits..." />
-    </div>
-    <div>
-      <form>
-        <h2 id="basket-heading">Add Fruits</h2>
-        <input type="text" name="fruit" id="fruit-to-add" />
-        <button type="submit">Add</button>
-      </form>
-      <ul class="fruits">
-        <li class="fruit">Banana<button class="delete-btn">x</button></li>
-        <li class="fruit">Apple<button class="delete-btn">x</button></li>
-        <li class="fruit">Orange<button class="delete-btn">x</button></li>
-        <li class="fruit">Kiwi<button class="delete-btn">x</button></li>
-      </ul>
-    </div>
-    <div id="thanks"></div>
-  </body>
-  <script src="index.js"></script>
+
+<head>
+  <meta charset="UTF-8" />
+  <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Document</title>
+  <link rel="stylesheet" href="style.css" />
+</head>
+
+<body style="margin: 0">
+  <div id="header" style="padding: 1rem; background-color: lightblue">
+    <h1 id="main-heading" style="margin: 0">Fruit Shop</h1>
+    <input id="filter" type="text" placeholder="Search fruits..." />
+  </div>
+  <div>
+    <form>
+      <h2 id="basket-heading">Add Fruits</h2>
+      <input type="text" name="fruit" id="fruit-to-add" />
+      <button type="submit">Add</button>
+    </form>
+    <ul class="fruits">
+      <li class="fruit">Banana<button class="delete-btn">x</button></li>
+      <li class="fruit">Apple<button class="delete-btn">x</button></li>
+      <li class="fruit">Orange<button class="delete-btn">x</button></li>
+      <li class="fruit">Kiwi<button class="delete-btn">x</button></li>
+    </ul>
+  </div>
+  <div id="thanks"></div>
+</body>
+<!-- <script src="index.js"></script> -->
+
 </html>
+
+<script>
+  // 1. add fruit when click on the add button fruit will added in list
+
+  let inputEl = document.getElementById("fruit-to-add");
+  let formEl = document.querySelector("form");
+  let ulEl = document.querySelector(".fruits");
+  const fruitItems = document.querySelectorAll('.fruit');
+// console.log(fruitItems);  
+
+  formEl.addEventListener("submit", (e)=>{
+    e.preventDefault();
+
+    // let liEl = document.createElement('li');
+    // let textNode = document.createTextNode(inputEl.value);
+    // let button = document.createElement("button");
+    // button.setAttribute("type","button");
+    // button.className = "delete-btn";
+    // button.innerText = "x";
+    // liEl.append(textNode,button);
+    // ulEl[0].append(liEl);
+
+//     fruitItems.forEach(li => {
+//   // Get all child nodes of the li element
+//   const childNodes = li.childNodes;
+//   // console.log(childNodes)
+
+//   childNodes.forEach((node)=>{
+//     if(node.nodeType === Node.TEXT_NODE){
+//       if(node.textContent.toLowerCase() === inputEl.value.toLowerCase()){
+//         alert(inputEl.value.toUpperCase() + " is already present in the list.")
+//       }
+//     }
+//   });
+// });
+
+    // same above thing done in only three line of code
+    let liEl = document.createElement("li");
+    liEl.innerHTML = inputEl.value + '<button class="delete-btn">x</button>'
+
+    ulEl.append(liEl);
+  })
+
+  ulEl.addEventListener("click",(e)=>{
+    console.log(e)
+  })
+
+</script>
+<script>
+
+  // //add edit button to every li tag
+  // const fruit = document.getElementsByClassName("fruit");
+
+  // for (let i = 0; i < fruit.length; i++) {
+  //   const editBtn = document.createElement("button");
+  //   editBtn.className = "edit-btn";
+  //   editBtn.innerText = "Edit";
+  //   fruit[i].append(editBtn);
+  // }
+
+  // // take input as fruit name add to list
+
+  // const form = document.querySelector("form");
+  // const input = document.getElementById("fruit-to-add");
+  // const ulEl = document.querySelector(".fruits");
+  
+  // form.addEventListener("submit", (e)=>{
+  //   e.preventDefault();
+  //   const inputValue = input.value;
+
+  //   const liEl = document.createElement("li");
+  //   liEl.className = "fruit";
+  //   liEl.innerHTML = inputValue + '<button class="delete-btn">x</button><button class="edit-btn">Edit</button>'
+
+  //   ulEl.append(liEl);
+
+  // })
+ 
+  // ulEl.addEventListener("click",(e)=>{
+  //   console.log(e.target.classList.contains("delete-btn"))
+  // })
+
+
+//   ulEl.addEventListener("click", (e)=>{
+//   if(e.target.classList.contains('delete-btn')){
+//     const fruitToDelete = e.target.parentElement;
+//     ulEl.removeChild(fruitToDelete);
+//   }
+// })
+</script>
+ 

@@ -32,5 +32,25 @@
 
 <script>
   const formEl = document.querySelector("form");
-  console.log(formEl);
+ 
+
+  // Add input element inside form, before button, to take fruit description
+  let inputEl = document.createElement("input");
+  inputEl.setAttribute('type','text');
+  inputEl.setAttribute("id","description");
+  inputEl.setAttribute("placeholder","description");
+  formEl.insertBefore(inputEl,formEl.children[2]);
+
+
+
+
+// Show the fruit description in italics on the next line
+
+
+const pEl = document.createElement("p");
+pEl
+
+
+// Create a filter that shows only those fruits whose either name or description or both matches the entered text
+
 </script>
